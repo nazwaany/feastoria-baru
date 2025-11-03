@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation - Feastoria</title>
+
+    <style>
+      /* ===== BODY ===== */
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #fff6f6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: 80px;
+      }
+
+      /* ===== NAVBAR ===== */
+      .navbar {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 15px 5%;
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .back-btn img {
+        width: 25px;
+        cursor: pointer;
+      }
+
+      /* ===== ORDER SECTION ===== */
+      .order-section {
+        background-color: #fff;
+        width: 90%;
+        max-width: 850px;
+        padding: 40px 40px 30px;
+        border-radius: 20px;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+
+      .order-section h2 {
+        color: #3f2a2a;
+        font-size: 22px;
+        margin-bottom: 30px;
+        font-weight: 600;
+      }
+
+      .order-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #d3a5a5;
+        padding-top: 15px;
+        margin-top: 30px;
+      }
+
+      .total {
+        font-size: 16px;
+        color: #4a2e2e;
+        font-weight: 600;
+      }
+
+      #total-price {
+        color: #a42c21;
+        font-weight: 700;
+      }
+
+      .reserve-btn {
+        background-color: #a42c21;
+        color: #fff;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background 0.3s ease;
+      }
+
+      .reserve-btn:hover {
+        background-color: #821d16;
+      }
+
+      /* ===== POPUP ===== */
+      .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+      }
+
+      .popup.show {
+        display: flex;
+      }
+
+      .popup-content {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 40px 35px;
+        width: 350px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .popup-content .circle {
+        width: 50px;
+        height: 50px;
+        border: 2px solid #a42c21;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 15px;
+      }
+
+      .popup-content .circle .check {
+        color: #3371ff;
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      .popup-content h3 {
+        color: #000;
+        font-size: 15px;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .popup-content p {
+        font-size: 13px;
+        color: #4a2e2e;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .popup-content .ok-btn {
+        background-color: #3371ff;
+        color: #fff;
+        border: none;
+        padding: 7px 35px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .popup-content .ok-btn:hover {
+        background-color: #255edb;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <a href="#" class="back-btn">
+        <img src="gambar/line-md_arrow-left.png" alt="Kembali" />
+      </a>
+    </nav>
+
+    <!-- ORDER SECTION -->
+    <section class="order-section">
+      <h2>Choose Your Order!</h2>
+
+      <div class="order-footer">
+        <div class="total">Total: <span id="total-price">Rp 175.000</span></div>
+        <button class="reserve-btn" onclick="openPopup()">Reservation</button>
+      </div>
+    </section>
+
+    <!-- POPUP -->
+    <div class="popup" id="popup">
+      <div class="popup-content">
+        <div class="circle">
+          <span class="check">&#10003;</span>
+        </div>
+        <h3>Successful</h3>
+        <p>
+          Congratulations, your reservation has been successfully registered
+          with All You Can Eat Feastoria.<br />
+          Click <b>OK</b> to continue.
+        </p>
+        <button class="ok-btn" onclick="closePopup()">OK</button>
+      </div>
+    </div>
+
+    <script>
+      const popup = document.getElementById("popup");
+
+      function openPopup() {
+        popup.classList.add("show");
+      }
+
+      function closePopup() {
+        popup.classList.remove("show");
+      }
+    </script>
+  </body>
+</html>

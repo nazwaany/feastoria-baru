@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Sign In - Feastoria</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding-top: 100px;
+        font-family: "Quicksand", sans-serif;
+        background-color: #fff;
+      }
+      /* ==================== NAVBAR ==================== */
+      .navbar-container {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        padding: 10px 5%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .box-logo-navbar {
+        display: flex;
+        align-items: center;
+        margin-left: -450px;
+      }
+
+      .gambar-logo {
+        width: 120px;
+        height: auto;
+        margin-right: 8px;
+      }
+
+      .tulisan-logo {
+        font-size: 28px;
+        color: #a42c21;
+        font-family: "Quicksand";
+      }
+
+      .box-navbar-links {
+        display: flex;
+        gap: 250px;
+        font-size: 16px;
+      }
+
+      /* Hanya Sign Up bisa diklik */
+      .navbar-link {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        pointer-events: none;
+      }
+
+      .buat-link {
+        pointer-events: auto; /* Sign Up bisa diklik */
+      }
+
+      .navbar-link:hover {
+        color: #a42c21;
+      }
+
+      /* ==================== HEADER TEXT ==================== */
+      .bagian-gambar {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      h4.sign-in {
+        font-size: 50px;
+        color: #000;
+        letter-spacing: 1px;
+        margin-top: -15px;
+      }
+
+      p {
+        font-size: 20px;
+        color: black;
+      }
+
+      /* ==================== LATAR ==================== */
+      .latar {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .latar-belakang {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        filter: brightness(90%);
+      }
+
+      /* ==================== RECTANGLE kanan  ==================== */
+      .rectangle-kanan {
+        position: absolute;
+        top: 10%;
+        right: 10%;
+        width: 450px;
+        min-height: 450px;
+        background-color: #ffffff;
+        z-index: 1;
+        border-radius: 20px;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* ==================== BUTTON LOGIN ==================== */
+      .button {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .button button {
+        background-color: #95aace;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .button button:hover {
+        background-color: #00365e;
+      }
+
+      .icon {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+      }
+
+      /* ==================== FORM ==================== */
+      .form-group {
+        width: 62%;
+        margin-top: 10px;
+      }
+
+      .form-group label {
+        font-size: 16px;
+        color: #333;
+        display: flex;
+        margin-bottom: 10px;
+      }
+
+      .input-box {
+        display: flex;
+        align-items: center;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 8px 12px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        transition: border 0.3s ease;
+      }
+
+      .input-box:focus-within {
+        border-color: #587dbd;
+      }
+
+      .input-box input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 16px;
+        font-family: inherit;
+      }
+
+      #submit-btn {
+        background-color: #95aace;
+        color: white;
+        font-size: 18px;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 100%;
+        transition: 0.3s;
+      }
+
+      #submit-btn:hover {
+        background-color: #4767a1;
+      }
+
+      /* ==================== SIGN UP TEXT ==================== */
+      .sign-up {
+        margin-top: 15px;
+        color: #333;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .sign-up .sign {
+        color: #587dbd;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .sign-up .sign:hover {
+        text-decoration: underline;
+      }
+
+      /* ==================== FOOTER ==================== */
+      .footer {
+        background: linear-gradient(to bottom, #fff0f0, #f1a9a9);
+        text-align: center;
+        padding: 60px 0 40px;
+        font-family: "Geologica";
+        margin-top: 100px;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: center;
+        gap: 120px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+
+      .footer-box h3 {
+        color: #5b2c2c;
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .footer-box p,
+      .footer-box address {
+        font-size: 14px;
+        color: #4a4a4a;
+        line-height: 1.5;
+      }
+
+      .footer-social img {
+        width: 45px;
+        margin: 0 10px;
+        transition: 0.3s;
+      }
+
+      .footer-social img:hover {
+        transform: scale(1.1);
+      }
+
+      .footer-bottom {
+        font-size: 12px;
+        color: #3a3a3a;
+        margin-top: 20px;
+      }
+
+      .footer-bottom hr {
+        width: 80%;
+        margin: 15px auto;
+        border: 0.5px solid #d1a6a6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ==================== NAVBAR ==================== -->
+    <nav>
+      <div class="navbar-container">
+        <a href="#">
+          <img src="gambar/line-md_arrow-left.png" alt="Kembali" />
+        </a>
+        <div class="box-logo-navbar">
+          <img src="gambar/logo.png" alt="Logo Feastoria" class="gambar-logo" />
+          <h1 class="tulisan-logo">Feastoria</h1>
+        </div>
+
+        <div class="box-navbar-links">
+          <a class="navbar-link masuk-link">Sign In</a>
+          <a href="up.html" class="navbar-link buat-link">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==================== SECTION SIGN IN ==================== -->
+    <section class="bagian-gambar">
+      <h4 class="sign-in">Sign In to Feastoria</h4>
+      <p>
+        Enter and enjoy a world full of flavors, colors, and sweet surprises!
+      </p>
+
+      <div class="latar">
+        <img
+          src="gambar/sign in.png"
+          alt="Gambar Sign In"
+          class="latar-belakang"
+        />
+
+        <div class="rectangle-kanan">
+          <div class="button">
+            <button type="button">
+              <img
+                src="gambar/material-icon-theme_google.png"
+                alt="Ikon Google"
+                class="icon"
+              />
+              Sign In with Google
+            </button>
+            <button type="button">
+              <img
+                src="gambar/images__1_-removebg-preview (1).png"
+                alt="Ikon Gmail"
+                class="icon"
+              />
+            </button>
+          </div>
+
+          <form
+            class="form-group"
+            action="https://formsubmit.co/xirplkelompok12@gmail.com"
+            method="POST"
+          >
+            <label for="username">Username</label>
+            <div class="input-box">
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
+
+            <label for="password">Password</label>
+            <div class="input-box">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <input
+              type="submit"
+              name="submit-btn"
+              id="submit-btn"
+              value="Sign In"
+            />
+          </form>
+
+          <div class="sign-up">
+            <p>
+              Not Account Yet?
+              <a href="up.html" class="sign">Sign Up</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+      <div class="footer-container">
+        <img
+          src="gambar/WhatsApp_Image_2025-10-27_at_08.53.39_dc56a609-removebg-preview 4.png"
+          alt="Logo Footer Feastoria"
+        />
+
+        <div class="footer-content">
+          <div class="footer-box">
+            <h3>Address</h3>
+            <address>
+              Jl. Kb. Bawang XV B No.15 B, RT.19/RW.7,<br />
+              Kb. Bawang, Kec. Tj. Priok, Jakarta Utara, DKI Jakarta 14320
+            </address>
+          </div>
+
+          <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p>Telp: 087873858320</p>
+            <p>Email: xirplkelompok12@gmail.com</p>
+          </div>
+
+          <div class="footer-box">
+            <h3>Time</h3>
+            <p>Open Every Day</p>
+            <p>11.00 AM – 10.00 PM</p>
+          </div>
+        </div>
+
+        <div class="footer-social">
+          <a
+            href="https://www.instagram.com/feastoria.official/"
+            target="_blank"
+          >
+            <img src="gambar/skill-icons_instagram.png" alt="Instagram" />
+          </a>
+          <a
+            href="https://www.tiktok.com/@feastoria.officia?_t=ZS-90yvIgMZYtl&_r=1"
+          >
+            <img src="gambar/logos_tiktok-icon.png" alt="Tiktok" />
+          </a>
+          <a href="#">
+            <img src="gambar/logos_whatsapp-icon.png" alt="WhatsApp" />
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            © 2025 All Rights Reserved · Accessibility · Privacy Center ·
+            Sitemap · Tracking Preferences
+          </p>
+          <hr />
+          <p>Powered by AYCE</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

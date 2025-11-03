@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation</title>
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ===== BODY ===== */
+      body {
+        margin: 0;
+        padding-top: 100px;
+        font-family: "Quicksand", sans-serif;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* ===== NAVBAR ===== */
+      .navbar {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 15px 100px;
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+      }
+
+      .back-btn img {
+        width: 25px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .back-btn img:hover {
+        transform: translateX(-3px);
+      }
+
+      /* ===== TITLE ===== */
+      h2 {
+        color: #3f2a2a;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 40px;
+      }
+
+      /* ===== MENU SECTION ===== */
+      .menu-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+
+      .menu-card {
+        width: 230px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: left;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .menu-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu-card img {
+        width: 100%;
+        display: block;
+      }
+
+      .menu-info {
+        padding: 15px 18px;
+      }
+
+      .menu-info h4 {
+        font-size: 15px;
+        font-weight: 700;
+        color: #3f2a2a;
+        margin: 0 0 3px;
+      }
+
+      .menu-info p {
+        font-size: 13px;
+        color: #4a2e2e;
+        margin: 2px 0;
+      }
+
+      .menu-info ol {
+        margin: 8px 0 12px 18px;
+        padding: 0;
+        font-size: 12px;
+        color: #4a2e2e;
+      }
+
+      .note-box {
+        background-color: #fceaea;
+        border-radius: 6px;
+        padding: 6px 10px;
+        margin: 10px 0;
+        color: #a42c21;
+        font-size: 11px;
+      }
+
+      .note-box span {
+        display: block;
+        color: #6c5555;
+        font-size: 10px;
+      }
+
+      .extra {
+        font-size: 11px;
+        color: #4a2e2e;
+        margin-bottom: 9px;
+        padding: 6px 10px;
+        margin: 10px 0;
+      }
+
+      .price {
+        font-size: 13px;
+        color: #000;
+        font-weight: 600;
+      }
+
+      .order-now {
+        color: #ff9f0d;
+        font-weight: 600;
+        font-size: 12px;
+        float: right;
+        cursor: pointer;
+      }
+
+      /* ===== ADD BUTTON ===== */
+      .add-menu-btn {
+        background-color: #a42c21;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        display: flex;
+        gap: 2px;
+        justify-content: center;
+        text-align: center;
+        margin: 20px auto; /* ubah ini */
+      }
+
+      .add-menu-btn:hover {
+        background-color: #821d16;
+      }
+
+      .add-menu-btn::before {
+        content: "+";
+        font-size: 16px;
+      }
+
+      /* ===== FOOTER ===== */
+      .order-footer {
+        width: calc(100% - 160px);
+        max-width: 700px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #d3a5a5;
+        padding: 6px 10px;
+        margin: 10px 0;
+      }
+
+      .total {
+        font-size: 15px;
+        color: #4a2e2e;
+        font-weight: 600;
+      }
+
+      #total-price {
+        color: #a42c21;
+        font-weight: 700;
+      }
+
+      .reserve-btn {
+        background-color: #a42c21;
+        color: #fff;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .reserve-btn:hover {
+        background-color: #821d16;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 700px) {
+        .navbar {
+          padding: 15px 30px;
+        }
+
+        .menu-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .menu-card {
+          width: 85%;
+        }
+
+        .add-menu-btn {
+          margin-right: 0;
+          margin-top: 20px;
+        }
+
+        .order-footer {
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+      <a href="#" class="back-btn">
+        <img src="gambar/line-md_arrow-left.png" alt="Kembali" />
+      </a>
+    </nav>
+
+    <!-- ===== TITLE ===== -->
+    <h2>Select Your Order !</h2>
+
+    <!-- ===== MENU SECTION ===== -->
+    <div class="menu-container">
+      <!-- Menu 1 -->
+      <div class="menu-card">
+        <img src="gambar/daging.png" alt="Menu Feastoria" />
+        <div class="menu-info">
+          <h4>Savory Savory Package</h4>
+          <p>★★★★★</p>
+          <ol>
+            <li>Beef Slice 60gr</li>
+            <li>Tom Yum Original</li>
+            <li>Dimsum Nori</li>
+            <li>Pie Fruit</li>
+            <li>Americano</li>
+            <li>Buah Melon</li>
+          </ol>
+          <div class="note-box">
+            Max 1 Person
+            <span>Meal duration: Max 90 minutes </span>
+          </div>
+          <p class="extra">+ Free Refill Minum</p>
+          <p class="price">
+            Rp 125.000 <span class="order-now">ORDER NOW</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Menu 2 -->
+      <div class="menu-card">
+        <img src="gambar/eskrim.png" alt="Dessert" />
+        <div class="menu-info">
+          <h4>Vegan Caramel <br />Ice Cream</h4>
+          <p>★★★★★</p>
+          <p>Rp 50.000 <span class="order-now">ORDER NOW</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ADD MORE BUTTON ===== -->
+    <button class="add-menu-btn">Add more</button>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="order-footer">
+      <div class="total">Total: <span id="total-price">Rp 175.000</span></div>
+      <button class="reserve-btn">Reservation</button>
+    </div>
+  </body>
+</html>

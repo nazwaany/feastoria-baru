@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Feastoria</title>
+
+    <style>
+      /* ===== NAVBAR ===== */
+      .navbar-container {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        padding: 10px 5%;
+        top: 0;
+        position: fixed;
+        z-index: 2;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .box-logo-navbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .gambar-logo {
+        width: 70px;
+        height: auto;
+      }
+
+      .tulisan-logo {
+        font-size: 28px;
+        color: #a42c21;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .box-navbar-links {
+        display: flex;
+        gap: 25px;
+      }
+
+      .navbar-link {
+        text-decoration: none;
+        color: black;
+        font-family: geologica;
+        font-weight: 500;
+      }
+
+      .navbar-link:hover {
+        color: #a42c21;
+      }
+
+      .box-login-search-cart {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .login-register-text {
+        text-decoration: none;
+        color: #dc2525;
+        font-family: geologica;
+        font-weight: 600;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        position: relative;
+        margin-top: 80px;
+      }
+
+      .hero-img {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        filter: brightness(70%);
+      }
+
+      .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+      }
+
+      .hero-text h2 {
+        font-size: 3rem;
+        margin: 0;
+      }
+
+      /* ===== CONTACT INFO ===== */
+      .kontak-info {
+        text-align: center;
+        padding: 60px 10%;
+        background: linear-gradient(to bottom, #fff0f0, #f1a9a9);
+      }
+
+      .kontak-info p {
+        max-width: 700px;
+        margin: 0 auto 40px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .info-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .info-box h3 {
+        color: #a42c21;
+        margin-bottom: 8px;
+      }
+
+      .informasi {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .btn {
+        background: #a42c21;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .btn:hover {
+        background: #8e241b;
+      }
+
+      /* ===== MAP SECTION ===== */
+      .map-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        background-color: white;
+        padding: 60px 10%;
+        gap: 40px;
+      }
+
+      .map-container {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .direction-box {
+        flex: 1;
+        background-color: #595252;
+        padding: 30px;
+        border-radius: 10px;
+        min-width: 280px;
+        color: white;
+      }
+
+      .direction-box h3 {
+        margin-top: 0;
+      }
+
+      .direction-box input {
+        width: 100%;
+        padding: 10px;
+        margin: 15px 0;
+        border: none;
+        border-radius: 6px;
+      }
+
+      .direction-box button {
+        background: #d44a4a;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .direction-box button:hover {
+        background: #b73a3a;
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        background: linear-gradient(to bottom, #fff0f0, #f1a9a9);
+        text-align: center;
+        padding: 60px 0 40px;
+        font-family: "Geologica";
+        margin-top: 100px;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+
+      .footer-box h3 {
+        color: #5b2c2c;
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .footer-box p,
+      .footer-box address {
+        font-size: 14px;
+        color: #4a4a4a;
+        line-height: 1.5;
+      }
+
+      .footer-social img {
+        width: 40px;
+        margin: 0 10px;
+        transition: 0.3s;
+      }
+
+      .footer-social img:hover {
+        transform: scale(1.1);
+      }
+
+      .footer-bottom {
+        font-size: 12px;
+        color: #3a3a3a;
+        margin-top: 20px;
+      }
+
+      .footer-bottom hr {
+        width: 80%;
+        margin: 15px auto;
+        border: 0.5px solid #d1a6a6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <nav>
+      <div class="navbar-container">
+        <div class="box-logo-navbar">
+          <img src="gambar/logo.png" alt="logo" class="gambar-logo" />
+          <h1 class="tulisan-logo">Feastoria</h1>
+        </div>
+
+        <div class="box-navbar-links">
+          <a href="#" class="navbar-link">Home</a>
+          <a href="#" class="navbar-link">About Us</a>
+          <a href="#" class="navbar-link">Menu</a>
+          <a href="#" class="navbar-link">Reservation</a>
+          <a href="#" class="navbar-link">Contact</a>
+        </div>
+
+        <div class="box-login-search-cart">
+          <img src="gambar/person.png" alt="user" width="25" />
+          <a href="#" class="login-register-text">Masuk / Buat Akun</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+      <img src="gambar/restaurant.png" alt="restaurant" class="hero-img" />
+      <div class="hero-text">
+        <h2>Contact</h2>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT INFO ===== -->
+    <section class="kontak-info">
+      <p>
+        Enjoy an unforgettable culinary experience on the upper ground floor of
+        the Sheraton Grand Jakarta Gandaria City Hotel. Feastoria, a place where
+        every bite is a celebration. Sample a variety of mouth-watering
+        all-you-can-eat menus.
+      </p>
+
+      <div class="info-container">
+        <div class="info-box">
+          <h3>Location</h3>
+          <p>
+            Jl. Kb. Bawang XV B No.15 B, RT.19/RW.7,<br />
+            Kb. Bawang, Kec. Tj. Priok, Jakarta Utara, DKI Jakarta 14320
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Time</h3>
+          <p>Wednesday–Saturday<br />10:00 AM – 8:00 PM</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Contact</h3>
+          <p>Telephone: 081234567890<br />Email: feastoria.group@gmail.com</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Delivery Time</h3>
+          <p>Wednesday–Saturday<br />11:00 AM – 8:00 PM</p>
+        </div>
+      </div>
+
+      <div class="informasi">
+        <a href="#" class="btn">Further Information</a>
+      </div>
+    </section>
+
+    <!-- ===== MAP SECTION ===== -->
+    <section class="map-section">
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.118320064017!2d106.88321187498947!3d-6.114769993871831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1fc0f11e3263%3A0x54a03664a7090923!2sSMK%20Negeri%2012%20Jakarta%20Utara!5e0!3m2!1sid!2sid!4v1761959547010!5m2!1sid!2sid"
+          width="100%"
+          height="300"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <div class="direction-box">
+        <h3>Heading Here</h3>
+        <input type="text" placeholder="From" />
+        <button>Get Directions</button>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-box">
+          <h3>Address</h3>
+          <address>
+            Jl. Kb. Bawang XV B No.15 B, RT.19/RW.7,<br />
+            Kb. Bawang, Kec. Tj. Priok, Jakarta Utara, DKI Jakarta 14320
+          </address>
+        </div>
+
+        <div class="footer-box">
+          <h3>Contact Us</h3>
+          <p>Telp: 087873858320</p>
+          <p>Email: xirplkelompok12@gmail.com</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Time</h3>
+          <p>Open Every Day</p>
+          <p>11.00 AM – 10.00 PM</p>
+        </div>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/feastoria.official/" target="_blank">
+          <img src="gambar/skill-icons_instagram.png" alt="Instagram" />
+        </a>
+        <a
+          href="https://www.tiktok.com/@feastoria.officia?_t=ZS-90yvIgMZYtl&_r=1"
+        >
+          <img src="gambar/logos_tiktok-icon.png" alt="Tiktok" />
+        </a>
+        <a href="#">
+          <img src="gambar/logos_whatsapp-icon.png" alt="WhatsApp" />
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2025 All Rights Reserved · Accessibility · Privacy Center · Sitemap
+          · Tracking Preferences
+        </p>
+        <hr />
+        <p>Powered by AYCE</p>
+      </div>
+    </footer>
+  </body>
+</html>
